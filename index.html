@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nakiyadeniya Estate - Digdola Devision</title>
     <style>
+        /* සියලුම කොටු වල ප්‍රමාණයන් නිවැරදිව තබා ගැනීමට */
+        * {
+            box-sizing: border-box;
+        }
+
         :root {
             --primary-color: #2e7d32;
             --secondary-color: #e8f5e9;
@@ -44,13 +49,20 @@
         }
         .nav-links a:hover::after { width: 100%; }
 
-        section { padding: 40px 5%; }
+        section { padding: 40px 5%; width: 100%; }
 
+        /* Card එක ඇතුළත ඇති දේවල් වලට ගැලපෙන සේ දික් වීමට සැකසීම */
         .card {
-            background: white; padding: 30px; border-radius: 15px;
+            background: white; 
+            padding: 30px; 
+            border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             margin-bottom: 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            width: 100%;
         }
         .card:hover {
             transform: translateY(-5px);
@@ -75,7 +87,6 @@
         }
         .info-box:hover { transform: scale(1.03); }
 
-        /* Table Responsive Wrapper */
         .table-responsive {
             width: 100%;
             overflow-x: auto;
@@ -83,13 +94,12 @@
         
         table {
             width: 100%; border-collapse: collapse; margin-top: 15px;
-            min-width: 400px; /* කුඩා තිරවලදී කැඩී යාම වැලැක්වීම */
+            min-width: 400px;
         }
         table th, table td { text-align: left; padding: 15px; border-bottom: 1px solid #eee; }
         table th { background-color: var(--primary-color); color: white; }
         table tbody tr:hover { background-color: var(--secondary-color); }
 
-        /* Button Styling */
         .btn {
             padding: 12px 20px; border-radius: 8px;
             text-decoration: none; font-size: 14px; font-weight: bold;
@@ -104,13 +114,15 @@
             justify-content: center; 
             gap: 15px; 
             flex-wrap: wrap; 
-            margin-bottom: 30px;
+            margin-bottom: 10px;
+            width: 100%;
         }
 
         .map-container {
             height: 450px; background: #e5e3df; border-radius: 12px;
             display: flex; align-items: center; justify-content: center;
             overflow: hidden;
+            width: 100%;
         }
 
         .hidden-element {
@@ -136,14 +148,16 @@
                 padding: 20px;
             }
             .map-container {
-                height: 300px; /* Phone එකේ Map එකේ උස අඩු කිරීම */
+                height: 300px;
             }
             .report-buttons {
                 flex-direction: column;
+                width: 100%;
             }
             .btn {
                 width: 100%;
                 justify-content: center;
+                padding: 15px; /* Phone එකෙන් ඔබන්න පහසු වෙන්න විශාල කර ඇත */
             }
         }
     </style>
@@ -215,7 +229,7 @@
 </section>
 
 <section id="fertilizer">
-    <div class=" card hidden-element">
+    <div class="card hidden-element">
         <h2>🌱 Field Activities</h2>
         
         <div class="report-buttons">
