@@ -25,7 +25,59 @@
             margin: 0; padding: 0;
             background-color: #f4f7f6;
             color: var(--text-color);
+            /* Splash screen එක යනකම් scroll වෙන එක නවත්තන්න */
+            overflow-y: hidden; 
         }
+
+        /* --- 🌴 Splash Screen Animation Styles --- */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            /* පහත ඇත්තේ Palm Oil / Tropical ගස් වල පින්තූරයකි. ඔබට අවශ්‍ය නම් මෙහි URL එක වෙනස් කළ හැක */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1541819741913-9118e617d3d8?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* Zoom in සහ Fade out වීම සඳහා transition */
+            transition: opacity 1.5s ease-in-out, transform 2s ease-in-out;
+        }
+
+        .splash-title {
+            color: white;
+            font-size: 2.5rem;
+            text-align: center;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            margin: 0;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .splash-subtitle {
+            color: #c8e6c9;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Animation එකේ අවසන් අදියර - ගස් මැදින් ඇතුළට යාම */
+        .splash-zoom-out {
+            opacity: 0;
+            transform: scale(1.5);
+            pointer-events: none;
+        }
+        /* ------------------------------------------- */
         
         header {
             background-color: var(--primary-color);
@@ -102,7 +154,6 @@
         table th { background-color: var(--primary-color); color: white; }
         table tbody tr:hover { background-color: var(--secondary-color); }
         
-        /* Contact Number එක පේළි දෙකකට කැඩීම වැළැක්වීමට අලුතින් යෙදූ කේතය */
         table td:last-child {
             white-space: nowrap;
         }
@@ -165,10 +216,19 @@
                 justify-content: center;
                 padding: 15px;
             }
+            .splash-title {
+                font-size: 2rem;
+                padding: 0 10px;
+            }
         }
     </style>
 </head>
 <body>
+
+<div id="splash-screen">
+    <h1 class="splash-title">Nakiyadeniya Estate</h1>
+    <div class="splash-subtitle">Digdola Division - Loading...</div>
+</div>
 
 <header>
     <div>
@@ -264,6 +324,23 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        
+        // --- Splash Screen Javascript ---
+        setTimeout(function() {
+            const splash = document.getElementById('splash-screen');
+            // Zoom out & Fade effect එක පටන් ගැනීම
+            splash.classList.add('splash-zoom-out');
+            
+            // Animation එක ඉවර වුනාම Splash screen එක සම්පූර්ණයෙන්ම අයින් කරලා Scroll කරන්න දීම
+            setTimeout(function() {
+                splash.style.display = 'none';
+                document.body.style.overflowY = 'auto';
+            }, 2000); 
+            
+        }, 1200); // තත්පර 1.2 කින් Animation එක පටන් ගනී
+        // ---------------------------------
+
+        // Scroll Animation Logic
         const observerOptions = { threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
