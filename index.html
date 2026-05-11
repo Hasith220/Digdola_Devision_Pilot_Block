@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nakiyadeniya Estate - Digdola Devision</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         :root {
             --primary-color: #2e7d32;
@@ -25,43 +23,33 @@
             margin: 0; padding: 0;
             background-color: #f4f7f6;
             color: var(--text-color);
-            /* Splash screen එක යනකම් scroll වෙන එක නවත්තන්න */
             overflow-y: hidden; 
         }
 
         /* --- 🌴 Splash Screen Animation Styles --- */
         #splash-screen {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            /* පහත ඇත්තේ Palm Oil / Tropical ගස් වල පින්තූරයකි. ඔබට අවශ්‍ය නම් මෙහි URL එක වෙනස් කළ හැක */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1541819741913-9118e617d3d8?q=80&w=1920&auto=format&fit=crop');
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            background-color: #1b5e20; /* පින්තූරය Load වන තෙක් දිස්වන වර්ණය */
+            /* ඉතා වේගයෙන් Load වන කුඩා (800px) Palm ගස් පින්තූරයක් */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/1083628/pexels-photo-1083628.jpeg?auto=compress&cs=tinysrgb&w=800');
             background-size: cover;
             background-position: center;
             z-index: 99999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            /* Zoom in සහ Fade out වීම සඳහා transition */
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
             transition: opacity 1.5s ease-in-out, transform 2s ease-in-out;
         }
 
         .splash-title {
-            color: white;
-            font-size: 2.5rem;
-            text-align: center;
+            color: white; font-size: 2.5rem; text-align: center;
             text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-            margin: 0;
-            animation: fadeIn 1s ease-in;
+            margin: 0; animation: fadeIn 1s ease-in;
         }
 
         .splash-subtitle {
-            color: #c8e6c9;
-            font-size: 1.2rem;
-            margin-top: 10px;
+            color: #c8e6c9; font-size: 1.2rem; margin-top: 10px;
             text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
             animation: fadeIn 1.5s ease-in;
         }
@@ -71,19 +59,14 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Animation එකේ අවසන් අදියර - ගස් මැදින් ඇතුළට යාම */
         .splash-zoom-out {
-            opacity: 0;
-            transform: scale(1.5);
-            pointer-events: none;
+            opacity: 0; transform: scale(1.5); pointer-events: none;
         }
         /* ------------------------------------------- */
         
         header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1rem 5%;
-            position: sticky; top: 0; z-index: 1000;
+            background-color: var(--primary-color); color: white;
+            padding: 1rem 5%; position: sticky; top: 0; z-index: 1000;
             display: flex; justify-content: space-between; align-items: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
@@ -103,31 +86,22 @@
         section { padding: 40px 5%; width: 100%; }
 
         .card {
-            background: white; 
-            padding: 30px; 
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
+            background: white; padding: 30px; border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: auto;
-            width: 100%;
+            display: flex; flex-direction: column; height: auto; width: 100%;
         }
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         h2 {
-            color: var(--primary-color);
-            border-left: 5px solid var(--accent-color);
+            color: var(--primary-color); border-left: 5px solid var(--accent-color);
             padding-left: 15px; margin-bottom: 25px;
         }
 
         .info-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
         }
 
         .info-box {
@@ -137,89 +111,45 @@
         }
         .info-box:hover { transform: scale(1.03); }
 
-        .table-responsive {
-            width: 100%;
-            overflow-x: auto;
-        }
+        .table-responsive { width: 100%; overflow-x: auto; }
         
-        table {
-            width: 100%; border-collapse: collapse; margin-top: 15px;
-            min-width: 100%;
-        }
-        table th, table td { 
-            text-align: left; 
-            padding: 15px; 
-            border-bottom: 1px solid #eee; 
-        }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; min-width: 100%; }
+        table th, table td { text-align: left; padding: 15px; border-bottom: 1px solid #eee; }
         table th { background-color: var(--primary-color); color: white; }
         table tbody tr:hover { background-color: var(--secondary-color); }
-        
-        table td:last-child {
-            white-space: nowrap;
-        }
+        table td:last-child { white-space: nowrap; }
 
         .btn {
-            padding: 12px 20px; border-radius: 8px;
-            text-decoration: none; font-size: 14px; font-weight: bold;
-            cursor: pointer; border: none; transition: all 0.3s ease;
+            padding: 12px 20px; border-radius: 8px; text-decoration: none; font-size: 14px; 
+            font-weight: bold; cursor: pointer; border: none; transition: all 0.3s ease;
             display: inline-flex; align-items: center; gap: 10px;
         }
         .btn-excel { background-color: var(--excel-green); color: white; }
         .btn-excel:hover { background-color: #145231; transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
 
         .report-buttons {
-            display: flex;
-            justify-content: center; 
-            gap: 15px; 
-            flex-wrap: wrap; 
-            margin-bottom: 10px;
-            width: 100%;
+            display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 10px; width: 100%;
         }
 
         .map-container {
             height: 450px; background: #e5e3df; border-radius: 12px;
             display: flex; align-items: center; justify-content: center;
-            overflow: hidden;
-            width: 100%;
+            overflow: hidden; width: 100%;
         }
 
         .hidden-element {
-            opacity: 0; transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+            opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
         }
         .show-element { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-                padding: 1.5rem 5%;
-            }
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
-            .card {
-                padding: 20px;
-            }
-            .map-container {
-                height: 300px;
-            }
-            .report-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-            .btn {
-                width: 100%;
-                justify-content: center;
-                padding: 15px;
-            }
-            .splash-title {
-                font-size: 2rem;
-                padding: 0 10px;
-            }
+            header { flex-direction: column; text-align: center; gap: 15px; padding: 1.5rem 5%; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .card { padding: 20px; }
+            .map-container { height: 300px; }
+            .report-buttons { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; padding: 15px; }
+            .splash-title { font-size: 2rem; padding: 0 10px; }
         }
     </style>
 </head>
@@ -259,16 +189,8 @@
 <section id="location">
     <div class="card hidden-element">
         <h2>📍 Division Boundary Map</h2>
-        
         <div class="map-container" style="width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-            
-            <iframe 
-                src="https://www.google.com/maps/d/embed?mid=1Ta-zez4zyKsuu_jAQ74DH6-oXmiEOY0&ehbc=2E312F" 
-                style="border: 0; width: 100%; height: calc(100% + 65px); margin-top: -65px;" 
-                allowfullscreen="" 
-                loading="lazy">
-            </iframe>
-
+            <iframe src="https://www.google.com/maps/d/embed?mid=1Ta-zez4zyKsuu_jAQ74DH6-oXmiEOY0&ehbc=2E312F" style="border: 0; width: 100%; height: calc(100% + 65px); margin-top: -65px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
 </section>
@@ -279,20 +201,11 @@
         <div class="table-responsive">
             <table>
                 <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Contact</th>
-                    </tr>
+                    <tr><th>Name</th><th>Contact</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Mr. Saman Kalansooriya<br><small style="color: #666;">Field Officer</small></td>
-                        <td>074 3207054</td>
-                    </tr>
-                    <tr>
-                        <td>Mr. U.L Yehan Tharaka<br><small style="color: #666;">Assistant Officer</small></td>
-                        <td>072 0858317</td>
-                    </tr>
+                    <tr><td>Mr. Saman Kalansooriya<br><small style="color: #666;">Field Officer</small></td><td>074 3207054</td></tr>
+                    <tr><td>Mr. U.L Yehan Tharaka<br><small style="color: #666;">Assistant Officer</small></td><td>072 0858317</td></tr>
                 </tbody>
             </table>
         </div>
@@ -302,19 +215,11 @@
 <section id="fertilizer">
     <div class="card hidden-element">
         <h2>🌱 Field Activities</h2>
-        
         <div class="report-buttons">
-            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRN-oN6QPcfzfHI6imJZCfDhNEyvrBrqGsSG266OSKMdHDUNiiFz-xDeXznKcB62o_B9c7Z6jJQ0lru/pubhtml" target="_blank" class="btn btn-excel">
-                <span>📋</span> YPH Details
-            </a>
-            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQwiVtrTU-m98uie2E-AFrFL8ogo1e8aoR66P60bLrqLCWsn0aSoL6ra8eFy9dOhGkXVTo2itYeVIlV/pubhtml" target="_blank" class="btn btn-excel">
-                <span>📊</span> Fertilizer Application Progress
-            </a>
-            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRojW916ggUdoPB6hJmfzwAY9sDE1-dv8e_MvWJfniU1YMt3c8WH94n_MrTwMBIxY7rHLE5NnNH0bMC/pubhtml" target="_blank" class="btn btn-excel">
-                <span>📈</span> EFB Application
-            </a>
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRN-oN6QPcfzfHI6imJZCfDhNEyvrBrqGsSG266OSKMdHDUNiiFz-xDeXznKcB62o_B9c7Z6jJQ0lru/pubhtml" target="_blank" class="btn btn-excel"><span>📋</span> YPH Details</a>
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQwiVtrTU-m98uie2E-AFrFL8ogo1e8aoR66P60bLrqLCWsn0aSoL6ra8eFy9dOhGkXVTo2itYeVIlV/pubhtml" target="_blank" class="btn btn-excel"><span>📊</span> Fertilizer Application Progress</a>
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRojW916ggUdoPB6hJmfzwAY9sDE1-dv8e_MvWJfniU1YMt3c8WH94n_MrTwMBIxY7rHLE5NnNH0bMC/pubhtml" target="_blank" class="btn btn-excel"><span>📈</span> EFB Application</a>
         </div>
-
     </div>
 </section>
 
@@ -325,22 +230,16 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         
-        // --- Splash Screen Javascript ---
+        // කාලය තත්පර 2.5ක් (2500ms) දක්වා වැඩි කර ඇත
         setTimeout(function() {
             const splash = document.getElementById('splash-screen');
-            // Zoom out & Fade effect එක පටන් ගැනීම
             splash.classList.add('splash-zoom-out');
-            
-            // Animation එක ඉවර වුනාම Splash screen එක සම්පූර්ණයෙන්ම අයින් කරලා Scroll කරන්න දීම
             setTimeout(function() {
                 splash.style.display = 'none';
                 document.body.style.overflowY = 'auto';
             }, 2000); 
-            
-        }, 1200); // තත්පර 1.2 කින් Animation එක පටන් ගනී
-        // ---------------------------------
+        }, 2500); 
 
-        // Scroll Animation Logic
         const observerOptions = { threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
