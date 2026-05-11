@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="si">
 <head>
@@ -33,7 +32,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
         
-        .nav-links { list-style: none; display: flex; gap: 25px; }
+        .nav-links { list-style: none; display: flex; gap: 25px; padding: 0; margin: 0; }
         .nav-links a {
             color: white; text-decoration: none; font-weight: 500;
             position: relative; padding-bottom: 5px; transition: color 0.3s ease;
@@ -45,7 +44,7 @@
         }
         .nav-links a:hover::after { width: 100%; }
 
-        section { padding: 50px 5%; }
+        section { padding: 40px 5%; }
 
         .card {
             background: white; padding: 30px; border-radius: 15px;
@@ -76,9 +75,15 @@
         }
         .info-box:hover { transform: scale(1.03); }
 
+        /* Table Responsive Wrapper */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+        
         table {
             width: 100%; border-collapse: collapse; margin-top: 15px;
-            overflow: hidden; border-radius: 8px;
+            min-width: 400px; /* කුඩා තිරවලදී කැඩී යාම වැලැක්වීම */
         }
         table th, table td { text-align: left; padding: 15px; border-bottom: 1px solid #eee; }
         table th { background-color: var(--primary-color); color: white; }
@@ -95,15 +100,15 @@
         .btn-excel:hover { background-color: #145231; transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
 
         .report-buttons {
-    display: flex;
-    justify-content: center; /* මේ කේතයෙන් තමයි බොත්තම් මැදට එන්නේ */
-    gap: 15px; 
-    flex-wrap: wrap; 
-    margin-bottom: 30px;
-}
+            display: flex;
+            justify-content: center; 
+            gap: 15px; 
+            flex-wrap: wrap; 
+            margin-bottom: 30px;
+        }
 
         .map-container {
-            height: 350px; background: #e5e3df; border-radius: 12px;
+            height: 450px; background: #e5e3df; border-radius: 12px;
             display: flex; align-items: center; justify-content: center;
             overflow: hidden;
         }
@@ -113,6 +118,34 @@
             transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
         }
         .show-element { opacity: 1; transform: translateY(0); }
+
+        /* Mobile & Tablet Responsive Media Queries */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+                padding: 1.5rem 5%;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .card {
+                padding: 20px;
+            }
+            .map-container {
+                height: 300px; /* Phone එකේ Map එකේ උස අඩු කිරීම */
+            }
+            .report-buttons {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -147,7 +180,7 @@
     <div class="card hidden-element">
         <h2>📍 Division Boundary Map</h2>
         
-        <div class="map-container" style="height: 450px; width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <div class="map-container" style="width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             
             <iframe 
                 src="https://www.google.com/maps/d/embed?mid=1Ta-zez4zyKsuu_jAQ74DH6-oXmiEOY0&ehbc=2E312F" 
@@ -163,19 +196,21 @@
 <section id="staff">
     <div class="card hidden-element">
         <h2>👨‍🌾 Staff Details</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Role</th>
-                    <th>Name</th>
-                    <th>Contact</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Field Officer</td><td>Mr. Saman Kalansooriya</td><td>074 3207054</td></tr>
-                <tr><td>Assistant Officer</td><td>Mr. U.L Yehan Tharaka</td><td>072 0858317</td></tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Name</th>
+                        <th>Contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Field Officer</td><td>Mr. Saman Kalansooriya</td><td>074 3207054</td></tr>
+                    <tr><td>Assistant Officer</td><td>Mr. U.L Yehan Tharaka</td><td>072 0858317</td></tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>
 
@@ -184,19 +219,18 @@
         <h2>🌱 Field Activities</h2>
         
         <div class="report-buttons">
-            
-            <a href=https://docs.google.com/spreadsheets/d/e/2PACX-1vRN-oN6QPcfzfHI6imJZCfDhNEyvrBrqGsSG266OSKMdHDUNiiFz-xDeXznKcB62o_B9c7Z6jJQ0lru/pubhtml target="_blank" class="btn btn-excel">
-                <span></span> YPH Details
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRN-oN6QPcfzfHI6imJZCfDhNEyvrBrqGsSG266OSKMdHDUNiiFz-xDeXznKcB62o_B9c7Z6jJQ0lru/pubhtml" target="_blank" class="btn btn-excel">
+                <span>📋</span> YPH Details
             </a>
-<a href=https://docs.google.com/spreadsheets/d/e/2PACX-1vQwiVtrTU-m98uie2E-AFrFL8ogo1e8aoR66P60bLrqLCWsn0aSoL6ra8eFy9dOhGkXVTo2itYeVIlV/pubhtml target="_blank" class="btn btn-excel">
-                <span></span> Fertilizer Application Progress
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQwiVtrTU-m98uie2E-AFrFL8ogo1e8aoR66P60bLrqLCWsn0aSoL6ra8eFy9dOhGkXVTo2itYeVIlV/pubhtml" target="_blank" class="btn btn-excel">
+                <span>📊</span> Fertilizer Application Progress
             </a>
-            <a href=https://docs.google.com/spreadsheets/d/e/2PACX-1vRojW916ggUdoPB6hJmfzwAY9sDE1-dv8e_MvWJfniU1YMt3c8WH94n_MrTwMBIxY7rHLE5NnNH0bMC/pubhtml target="_blank" class="btn btn-excel">
-                <span></span> EFB Application
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRojW916ggUdoPB6hJmfzwAY9sDE1-dv8e_MvWJfniU1YMt3c8WH94n_MrTwMBIxY7rHLE5NnNH0bMC/pubhtml" target="_blank" class="btn btn-excel">
+                <span>📈</span> EFB Application
             </a>
         </div>
 
-            </div>
+    </div>
 </section>
 
 <footer style="text-align: center; padding: 20px; color: #777; font-size: 14px;">
@@ -205,7 +239,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const observerOptions = { threshold: 0.2 };
+        const observerOptions = { threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
