@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nakiyadeniya Estate - Digdola Devision</title>
     <style>
-        /* සියලුම කොටු වල ප්‍රමාණයන් නිවැරදිව තබා ගැනීමට */
         * {
             box-sizing: border-box;
         }
@@ -51,7 +50,6 @@
 
         section { padding: 40px 5%; width: 100%; }
 
-        /* Card එක ඇතුළත ඇති දේවල් වලට ගැලපෙන සේ දික් වීමට සැකසීම */
         .card {
             background: white; 
             padding: 30px; 
@@ -94,11 +92,20 @@
         
         table {
             width: 100%; border-collapse: collapse; margin-top: 15px;
-            min-width: 400px;
+            min-width: 100%;
         }
-        table th, table td { text-align: left; padding: 15px; border-bottom: 1px solid #eee; }
+        table th, table td { 
+            text-align: left; 
+            padding: 15px; 
+            border-bottom: 1px solid #eee; 
+        }
         table th { background-color: var(--primary-color); color: white; }
         table tbody tr:hover { background-color: var(--secondary-color); }
+        
+        /* Contact Number එක පේළි දෙකකට කැඩීම වැළැක්වීමට අලුතින් යෙදූ කේතය */
+        table td:last-child {
+            white-space: nowrap;
+        }
 
         .btn {
             padding: 12px 20px; border-radius: 8px;
@@ -131,7 +138,6 @@
         }
         .show-element { opacity: 1; transform: translateY(0); }
 
-        /* Mobile & Tablet Responsive Media Queries */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -157,7 +163,7 @@
             .btn {
                 width: 100%;
                 justify-content: center;
-                padding: 15px; /* Phone එකෙන් ඔබන්න පහසු වෙන්න විශාල කර ඇත */
+                padding: 15px;
             }
         }
     </style>
@@ -214,14 +220,19 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Role</th>
                         <th>Name</th>
                         <th>Contact</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Field Officer</td><td>Mr. Saman Kalansooriya</td><td>074 3207054</td></tr>
-                    <tr><td>Assistant Officer</td><td>Mr. U.L Yehan Tharaka</td><td>072 0858317</td></tr>
+                    <tr>
+                        <td>Mr. Saman Kalansooriya<br><small style="color: #666;">Field Officer</small></td>
+                        <td>074 3207054</td>
+                    </tr>
+                    <tr>
+                        <td>Mr. U.L Yehan Tharaka<br><small style="color: #666;">Assistant Officer</small></td>
+                        <td>072 0858317</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -247,8 +258,8 @@
     </div>
 </section>
 
-<footer style="text-align: center; padding: 20px; color: #777; font-size: 14px;">
-    © 2026 Hasith Dilshan. All Rights Reserved.
+<footer style="text-align: center; padding: 30px 20px; color: #777; font-size: 14px; line-height: 1.6;">
+    © 2026 Hasith Dilshan.<br>All Rights Reserved.
 </footer>
 
 <script>
